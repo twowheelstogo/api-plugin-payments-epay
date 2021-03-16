@@ -1,0 +1,25 @@
+"Data for a ePay payment"
+type EPayPaymentData {
+  posEntryMode: Number!
+  pan: Number!
+  expdate: Number!
+  amount: Number!
+  track2Data: String
+  cvv2:String!
+  paymentqwIP:String!
+  shopperIP:String!
+  merchantServerIP:String!
+  merchantUser:String!
+  merchantPasswd:String!
+  terminalId:String!
+  messageType:Number!
+  auditNumber:Number!
+  additionalData:String
+}
+
+extend union PaymentData = EPayPaymentData
+
+extend enum PaymentMethodName {
+  "ePay payment method"
+  epay
+}
