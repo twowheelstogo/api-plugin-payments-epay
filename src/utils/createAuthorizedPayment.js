@@ -1,8 +1,7 @@
 import Random from "@reactioncommerce/random";
-
+import {EPAY_PACKAGE_NAME} from "./constants";
 const METHOD = "credit";
-const PACKAGE_NAME = "example-paymentmethod";
-const PAYMENT_METHOD_NAME = "iou_example";
+const PAYMENT_METHOD_NAME = "epay_card";
 
 // NOTE: The "processor" value is lowercased and then prefixed to various payment Meteor method names,
 // so for example, if this is "Example", the list refunds method is expected to be named "example/refund/list"
@@ -32,13 +31,13 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
     createdAt: new Date(),
     data: {
       fullName,
-      gqlType: "ExampleIOUPaymentData" // GraphQL union resolver uses this
+      gqlType: "EPayPaymentData" // GraphQL union resolver uses this
     },
-    displayName: `IOU from ${fullName}`,
+    displayName: `Epay from ${fullName}`,
     method: METHOD,
     mode: "authorize",
     name: PAYMENT_METHOD_NAME,
-    paymentPluginName: PACKAGE_NAME,
+    paymentPluginName: EPAY_PACKAGE_NAME,
     processor: PROCESSOR,
     riskLevel: "normal",
     shopId,

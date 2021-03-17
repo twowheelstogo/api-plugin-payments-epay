@@ -14,7 +14,7 @@ export default async function register(app){
             schemas
         },
         paymentMethods:{
-            name:"epay_payment",
+            name:"epay_card",
             canRefund:true,
             displayName:"EPay Payment",
             functions:{
