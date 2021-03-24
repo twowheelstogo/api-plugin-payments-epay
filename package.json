@@ -1,13 +1,18 @@
 {
   "name": "api-plugin-payments-epay",
   "version": "1.0.0",
-  "description": "",
+  "description": "ePay Payments plugin for Reaction Commerce Platform",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Twowheelstogo",
+    "email": "soporte@twowheelstogo.com",
+    "url": "https://twowheelstogo.com"
+  },
   "license": "ISC",
   "dependencies": {
     "@reactioncommerce/api-utils": "^1.16.0",

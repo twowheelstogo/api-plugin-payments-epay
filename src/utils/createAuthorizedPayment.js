@@ -5,7 +5,7 @@ const PAYMENT_METHOD_NAME = "epay_card";
 
 // NOTE: The "processor" value is lowercased and then prefixed to various payment Meteor method names,
 // so for example, if this is "Example", the list refunds method is expected to be named "example/refund/list"
-const PROCESSOR = "Example";
+const PROCESSOR = "EPay";
 
 /**
  * @summary As an example and for demos, this non-production payment method creates a payment
