@@ -4,6 +4,9 @@
   "description": "ePay Payments plugin for Reaction Commerce Platform",
   "main": "index.js",
   "type":"module",
+  "engines": {
+    "node": ">=12.14.1"
+  },
   "scripts": {
     "lint": "npm run lint:eslint",
     "lint:eslint": "eslint .",
@@ -71,7 +74,7 @@
   },
   "release": {
     "branches": [
-      "master"
+      "main"
     ]
   },
   "publishConfig": {

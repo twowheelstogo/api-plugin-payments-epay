@@ -1,5 +1,5 @@
 import Random from "@reactioncommerce/random";
-import {EPAY_PACKAGE_NAME} from "./constants";
+import {EPAY_PACKAGE_NAME} from "./constants.js";
 const METHOD = "credit";
 const PAYMENT_METHOD_NAME = "epay_card";
 
