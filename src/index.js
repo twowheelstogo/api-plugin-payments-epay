@@ -13,7 +13,7 @@ export default async function register(app){
         graphQL:{
             schemas
         },
-        paymentMethods:{
+        paymentMethods:[{
             name:"epay_card",
             canRefund:true,
             displayName:"EPay Payment",
@@ -21,6 +21,6 @@ export default async function register(app){
                 createAuthorizedPayment:epayCreateAuthorizedPayment,
                 createPayment:epayCapturePayment
             }
-        }
-    })
+        }]
+    });
 }
