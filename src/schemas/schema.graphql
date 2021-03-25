@@ -1,9 +1,9 @@
 "Data for a ePay payment"
 type EPayPaymentData {
-  posEntryMode: Number!
-  pan: Number!
-  expdate: Number!
-  amount: Number!
+  posEntryMode: Int!
+  pan: Int!
+  expdate: Int!
+  amount: Int!
   track2Data: String
   cvv2:String!
   paymentqwIP:String!
@@ -12,8 +12,8 @@ type EPayPaymentData {
   merchantUser:String!
   merchantPasswd:String!
   terminalId:String!
-  messageType:Number!
-  auditNumber:Number!
+  messageType:Int!
+  auditInt:Int!
   additionalData:String
 }
 
