@@ -1,20 +1,9 @@
 "Data for a ePay payment"
 type EPayPaymentData {
-  posEntryMode: Int!
-  pan: Int!
-  expdate: Int!
-  amount: Int!
-  track2Data: String
-  cvv2:String!
-  paymentqwIP:String!
-  shopperIP:String!
-  merchantServerIP:String!
-  merchantUser:String!
-  merchantPasswd:String!
-  terminalId:String!
-  messageType:Int!
-  auditInt:Int!
-  additionalData:String
+  auditNumber:Int!
+  referenceNumber:String!
+  authorizationNumber:String!
+  responseCode:String!
 }
 
 extend union PaymentData = EPayPaymentData

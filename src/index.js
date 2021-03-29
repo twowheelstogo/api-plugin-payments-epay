@@ -25,7 +25,7 @@ export default async function register(app){
             displayName:"EPay Payment",
             functions:{
                 createAuthorizedPayment:epayCreateAuthorizedPayment,
-                createPayment:epayCapturePayment,
+                capturePayment:epayCapturePayment,
                 listRefunds:epayListRefunds,
                 createRefund:epayCreateRefund
             }

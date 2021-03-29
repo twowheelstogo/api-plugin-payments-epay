@@ -1,5 +1,6 @@
 import Random from "@reactioncommerce/random";
 import {EPAY_PACKAGE_NAME} from "./constants.js";
+
 const METHOD = "credit";
 const PAYMENT_METHOD_NAME = "epay_card";
 
@@ -14,15 +15,22 @@ const PROCESSOR = "EPay";
  * @param {Object} input Input necessary to create a payment
  * @returns {Object} The payment object in schema expected by the orders plugin
  */
+async function createPayment({cardNumber,cardExpiry,cardCVV}){
+  
+}
 export default async function exampleCreateAuthorizedPayment(context, input) {
   const {
     amount,
     billingAddress,
     shopId,
     paymentData: {
-      fullName
+      cardNumber,
+      cardExpiry,
+      cardCVV
     }
   } = input;
+  console.log('Authorize input: ',input);
+  console.log('Authorize context: ',context);
 
   return {
     _id: Random.id(),
@@ -30,10 +38,13 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
     amount,
     createdAt: new Date(),
     data: {
-      fullName,
+      auditNumber:12345,
+      referenceNumber:"12345",
+      authorizationNumber:"12345",
+      responseCode:"132564",
       gqlType: "EPayPaymentData" // GraphQL union resolver uses this
     },
-    displayName: `Epay from ${fullName}`,
+    displayName: `Epay from ${billingAddress.fullName}`,
     method: METHOD,
     mode: "authorize",
     name: PAYMENT_METHOD_NAME,
