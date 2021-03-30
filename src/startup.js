@@ -5,5 +5,5 @@
  * @returns {undefined}
  */
  export default function EpayPaymentsStartup(context) {
-    context.collections.ExampleIOUPaymentRefunds = context.app.db.collection("EpayPaymentRefunds");
+    context.collections.EpayPaymentRefunds = context.app.db.collection("EpayPaymentRefunds");
   }
