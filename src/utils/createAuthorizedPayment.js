@@ -35,7 +35,14 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
       expdate:cardExpiry,
       cvv2:cardCVV,
       messageType:'0200',
-      auditNumber:'000001'
+      auditNumber:'000001',
+      posEntryMode:'012',
+      pan:'4000000000000416',
+      paymentgwIP:'190.149.69.135',
+      merchantUser:'76B925EF7BEC821780B4B21479CE6482EA415896CF43006050B1DAD101669921',
+      merchantPasswd:'91DB5B28DDE6FBC2B9951DFED4D97B82EFD622B411F1FC16B88B052232C7',
+      terminalId:'77788881',
+      merchant:'00575123'
     });
     await CreateEpayPayment(schema.toXml())
     return {
