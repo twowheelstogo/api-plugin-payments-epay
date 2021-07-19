@@ -32,7 +32,7 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
   //const epayModel = EpayModel(shopperIp, "", cardNumber, cardExpiry, 0, cardCVV);
   //const resEpay = await EpayService(epayModel, 1);
   console.log(input);
-  throw new Error("error de demo");
+  //throw new Error("error de demo");
   return {
     _id: Random.id(),
     address: billingAddress,
