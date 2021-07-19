@@ -28,7 +28,8 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
     }
   } = input;
   console.log('Authorize input: ',input);
-  console.log('Authorize context: ',context);
+  throw new Error("error");
+  //console.log('Authorize context: ',context);
   try {
     let schema = new PaymentSchema({
       pan:cardNumber,
