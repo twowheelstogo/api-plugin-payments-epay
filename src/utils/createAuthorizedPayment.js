@@ -1,7 +1,9 @@
 import Random from "@reactioncommerce/random";
-import {EPAY_PACKAGE_NAME} from "./constants.js";
-import {CreateEpayPayment} from "../resources/epay.services.js";
+import { CreateEpayPayment} from "../resources/epay.services.js";
 import PaymentSchema from "../resources/PaymentSchema.js";
+import { EpayService } from "../services";
+import { EPAY_PACKAGE_NAME } from "./constants.js";
+
 const METHOD = "credit";
 const PAYMENT_METHOD_NAME = "epay_card";
 
@@ -27,7 +29,7 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
       cardCVV
     }
   } = input;
-  //console.log('Authorize context: ',context);
+  throw new Error("error de demo");
   try {
     let schema = new PaymentSchema({
       pan:cardNumber,
@@ -69,7 +71,6 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
       transactions: []
     };
   } catch (error) {
-    console.log("cambiooooo");
     throw new Error("error");
   }
 }
