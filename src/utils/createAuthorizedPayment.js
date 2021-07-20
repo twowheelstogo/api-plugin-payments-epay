@@ -28,6 +28,7 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
     }
   } = input;
   console.log('Authorize input: ',input);
+  throw new Error('¡Ups!');
   throw new Error("error");
   //console.log('Authorize context: ',context);
   try {
