@@ -27,9 +27,6 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
       cardCVV
     }
   } = input;
-  console.log('Authorize input: ',input);
-  throw new Error('¡Ups!');
-  throw new Error("error");
   //console.log('Authorize context: ',context);
   try {
     let schema = new PaymentSchema({
@@ -72,7 +69,7 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
       transactions: []
     };
   } catch (error) {
-    console.error('Authorize Payment Error: ',error);
-    throw new Error(error.message);
+    console.log("cambiooooo");
+    throw new Error("error");
   }
 }
