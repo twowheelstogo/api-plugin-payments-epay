@@ -9,9 +9,7 @@ async function CreateEpayPayment(xml){
       };
   const { response } = await soapRequest({ url: url, headers: req_headers, xml: xml, timeout: 1000,method:'POST' }); // Optional timeout parameter(milliseconds)
   const { headers, body, statusCode } = response;
-  console.log('XML headers: ',headers);
-  console.log('XML body: ',body);
-  console.log('XML statusCode: ',statusCode);
+    console.log("jaaaa");
   return response;
 }
 export{
