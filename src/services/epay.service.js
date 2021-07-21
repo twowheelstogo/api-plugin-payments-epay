@@ -1,8 +1,9 @@
 import fetch from "node-fetch";
+import { EpayConstant } from "../constants";
 
 export default async (body, action = 1) => {
   const invoiceUrl = process.env.INVOICE_URL;
-  let data = await fetch(
+  const res = await fetch(
     `${invoiceUrl}/api/epay?action=${action}`,
     {
       method: "POST",
@@ -10,7 +11,15 @@ export default async (body, action = 1) => {
       headers: { "Content-Type": "application/json" }
     }
   );
-  console.log("data es", data);
-  data = await data.json();
+  if (!res.ok) {
+    throw new Error("Error en la comunicación");
+  }
+  const data = await res.json();
+  const error = EpayConstant[data.responseCode];
+  if (error) {
+    throw new Error(error);
+  } else if (data.responseCode !== "00") {
+    throw new Error("error desconocido en el sistema de cobros");
+  }
   return data;
 };
