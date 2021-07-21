@@ -2,6 +2,7 @@ import Random from "@reactioncommerce/random";
 //import { CreateEpayPayment } from "../resources/epay.services.js";
 import PaymentSchema from "../resources/PaymentSchema.js";
 import { EpayService } from "../services/index.js";
+import { EpayModel } from '../models/index.js';
 import { EPAY_PACKAGE_NAME } from "./constants.js";
 
 const METHOD = "credit";
@@ -29,7 +30,9 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
       cardCVV
     }
   } = input;
-  console.log(input);
+  const model = EpayModel("190.56.108.46", "0", "4000000000000416", "2412", 10.30, "123");
+  const data = await EpayService(model, 1);
+  console.log(data);
   throw new Error("error de demo");
   /*try {
     let schema = new PaymentSchema({

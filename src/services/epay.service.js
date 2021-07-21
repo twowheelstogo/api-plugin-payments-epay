@@ -6,6 +6,6 @@ export default async (body, action = 1) => {
     `${invoiceUrl}/api/epay?action=${action}`,
     { method: "POST", body }
   );
-  data = data.json();
+  data = await data.json();
   return data;
 };
