@@ -1,3 +1,3 @@
-import EpayService from "./epay.service";
+import EpayService from "./epay.service.js";
 
 export { EpayService };
