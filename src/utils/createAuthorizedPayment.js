@@ -56,7 +56,7 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
         responseCode:"132564",
         gqlType: "EPayPaymentData" // GraphQL union resolver uses this
       },
-      displayName: `Epay from ${billingAddress.fullName}`,
+      displayName: `Pago con tarjeta`,
       method: METHOD,
       mode: "authorize",
       name: PAYMENT_METHOD_NAME,

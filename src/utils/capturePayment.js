@@ -8,6 +8,6 @@
  * @private
  */
  export default function exampleCapturePayment() {
-    throw new Error('error on exampleCapturePayment');
+    // throw new Error('error on exampleCapturePayment');
     return { saved: true, response: {} };
   }
