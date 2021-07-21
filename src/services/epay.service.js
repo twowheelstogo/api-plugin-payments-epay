@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { EpayConstant } from "../constants";
+import { EpayConstant } from "../constants/index.js";
 
 export default async (body, action = 1) => {
   const invoiceUrl = process.env.INVOICE_URL;
