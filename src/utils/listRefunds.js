@@ -9,8 +9,6 @@
  */
  export default async function listRefunds(context, payment) {
     const { transactionId } = payment;
-    throw new Error('error on listRefunds');
-  
     const refunds = await context.collections.EpayPaymentRefunds.find({ transactionId }).toArray();
   
     return refunds.map((refund) => ({
