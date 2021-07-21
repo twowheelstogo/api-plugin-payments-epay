@@ -1,7 +1,7 @@
 import Random from "@reactioncommerce/random";
-import { CreateEpayPayment} from "../resources/epay.services.js";
+import { CreateEpayPayment } from "../resources/epay.services.js";
 import PaymentSchema from "../resources/PaymentSchema.js";
-import { EpayService } from "../services";
+import { EpayService } from "../services/index.js";
 import { EPAY_PACKAGE_NAME } from "./constants.js";
 
 const METHOD = "credit";
