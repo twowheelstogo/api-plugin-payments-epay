@@ -28,7 +28,8 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
       cardCVV
     }
   } = input;
-  const model = EpayModel("190.56.108.46", "0", "4000000000000416", "2412", 10.30, "123");
+  const model = EpayModel("190.56.108.46", "0", cardNumber, cardExpiry, amount, cardCVV);
+  console.log(model);
   const res = await EpayService(model, 1);
   return {
     _id: Random.id(),
@@ -39,7 +40,7 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
       ...res,
       gqlType: "EPayPaymentData" // GraphQL union resolver uses this
     },
-    displayName: `Epay de ${billingAddress.fullName}`,
+    displayName: `Pago con tarjeta`,
     method: METHOD,
     mode: "authorize",
     name: PAYMENT_METHOD_NAME,
