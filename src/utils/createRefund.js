@@ -16,13 +16,14 @@ import { EpayModel } from "../models/index.js";
     const { currencyCode, transactionId } = payment;
     console.log(context);
     const model = EpayModel("190.56.108.46", transactionId);
-    await EpayService(model, 0);
+    let metadata = await EpayService(model, 0);
     await context.collections.EpayPaymentRefunds.insertOne({
       amount,
       createdAt: new Date(),
       currencyCode,
       reason,
-      transactionId
+      transactionId,
+      metadata
     });
     return { saved: true };
   }
