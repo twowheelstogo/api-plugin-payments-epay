@@ -3,5 +3,6 @@ export default (shopperIP, auditNumber = "", cardNumber = "", cardExpiry = "", a
   let expvalues = cardExpiry && cardExpiry.split("/");
   let expdate =  `${expvalues[1]}${expvalues[0]}`
   const _epayModel = { shopperIP, pan, expdate, amount, cvv2, auditNumber };
+  console.log("Epay_model", _epayModel);
   return _epayModel;
 };
