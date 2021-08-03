@@ -3,7 +3,8 @@ type EPayPaymentData {
   auditNumber:Int!
   referenceNumber:String!
   authorizationNumber:String!
-  responseCode:String!
+  responseCode:String!,
+  email:String!
 }
 
 extend union PaymentData = EPayPaymentData
