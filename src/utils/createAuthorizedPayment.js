@@ -22,13 +22,14 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
     amount,
     billingAddress,
     shopId,
+    email,
     paymentData: {
       cardNumber,
       cardExpiry,
       cardCVV
     }
   } = input;
-  const model = EpayModel("190.56.108.46", "0", cardNumber, cardExpiry, amount, cardCVV);
+  const model = EpayModel("190.56.108.46", "0", email, cardNumber, cardExpiry, amount, cardCVV);
   console.log(model);
   const res = await EpayService(model, 1);
   return {
