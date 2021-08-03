@@ -39,6 +39,7 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
     createdAt: new Date(),
     data: {
       ...res,
+      email,
       gqlType: "EPayPaymentData" // GraphQL union resolver uses this
     },
     displayName: `Pago con tarjeta`,
