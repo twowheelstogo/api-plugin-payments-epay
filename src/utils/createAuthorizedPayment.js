@@ -30,7 +30,9 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
       cardName
     }
   } = input;
+  console.log("190.56.108.46", "0", email, cardNumber, cardExpiry, amount, cardCVV, cardName);
   const model = EpayModel("190.56.108.46", "0", email, cardNumber, cardExpiry, amount, cardCVV, cardName);
+  console.log(model);
   const res = await EpayService(model, 1);
   return {
     _id: Random.id(),
