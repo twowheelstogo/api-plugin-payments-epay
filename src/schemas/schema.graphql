@@ -4,7 +4,10 @@ type EPayPaymentData {
   referenceNumber:String!
   authorizationNumber:String!
   responseCode:String!,
-  email:String!
+  email:String!,
+  pan:String!,
+  cardName:String!,
+  amount:Float!
 }
 
 extend union PaymentData = EPayPaymentData
