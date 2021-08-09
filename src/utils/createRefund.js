@@ -14,7 +14,7 @@ import { EpayModel } from "../models/index.js";
  */
  export default async function createRefund(context, payment, amount, reason) {
     const { currencyCode, transactionId, data } = payment;
-    const model = EpayModel("190.56.108.46", transactionId, data.email);
+    const model = EpayModel("190.56.108.46", transactionId, data.email, data.pan, '', data.amount, '', data.cardName);
     let metadata = await EpayService(model, 0);
     await context.collections.EpayPaymentRefunds.insertOne({
       amount,
