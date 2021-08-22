@@ -3,7 +3,6 @@ import { EpayConstant } from "../constants/index.js";
 
 export default async (body, action = 1) => {
   const invoiceUrl = process.env.INVOICE_URL;
-  console.log("body",body);
   const res = await fetch(
     `${invoiceUrl}/api/epay?action=${action}`,
     {
