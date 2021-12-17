@@ -1,4 +1,4 @@
-import soapRequest from "easy-soap-request";
+/*import soapRequest from "easy-soap-request";
 import {SERVICE_DOMAIN} from "../utils/constants.js";
 async function CreateEpayPayment(xml){
     const url = 'https://epaytestvisanet.com.gt/paymentcommerce.asmx?WSDL';
@@ -14,4 +14,4 @@ async function CreateEpayPayment(xml){
 }
 export{
     CreateEpayPayment
-}
+}*/
