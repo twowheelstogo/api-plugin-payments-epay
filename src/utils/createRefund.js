@@ -1,5 +1,5 @@
 import { EpayService } from "../services/index.js";
-import { EpayModel } from "../models/index.js";
+import { EpayModel, EmailModel } from "../models/index.js";
 
 /**
  * @name exampleCreateRefund
@@ -12,17 +12,29 @@ import { EpayModel } from "../models/index.js";
  * @returns {Object} refund result
  * @private
  */
- export default async function createRefund(context, payment, amount, reason) {
-    const { currencyCode, transactionId, data } = payment;
-    const model = EpayModel("190.56.108.46", transactionId, data.email, data.pan, '', data.amount, '', data.cardName);
-    let metadata = await EpayService(model, 0);
-    await context.collections.EpayPaymentRefunds.insertOne({
-      amount,
-      createdAt: new Date(),
-      currencyCode,
-      reason,
-      transactionId,
-      metadata
-    });
-    return { saved: true };
-  }
+export default async function createRefund(context, payment, amount, reason) {
+  const { currencyCode, transactionId, data } = payment;
+  const model = EpayModel(
+    "190.56.108.46",
+    transactionId,
+    data.email,
+    data.pan,
+    "",
+    data.amount,
+    "",
+    data.cardName
+  );
+  //let metadata = await EpayService.serviceInvoice(model, 1);
+  let metadata =  await EpayService.serviceEpay(model, 1);
+  const paymentDataEmail = EmailModel.getModel(model, res, "refunded");
+  sendOrderPaymentEmail(context, paymentDataEmail, data.email, shopId);
+  await context.collections.EpayPaymentRefunds.insertOne({
+    amount,
+    createdAt: new Date(),
+    currencyCode,
+    reason,
+    transactionId,
+    metadata,
+  });
+  return { saved: true };
+}
