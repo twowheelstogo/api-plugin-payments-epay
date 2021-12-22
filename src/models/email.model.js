@@ -1,4 +1,4 @@
-export const getModel = (epayModel, res, act) => {
+const getModel = (epayModel, res, act) => {
   const nameCommerce = process.env.EPAY_NAME_COMMERCE;
   const membership = process.env.EPAY_MEMBERSHIP_COMMERCE;
   const addressCommerce = process.env.EPAY_ADDRESS_COMMERCE;
@@ -31,4 +31,8 @@ export const getModel = (epayModel, res, act) => {
     action,
     pastAction,
   };
+};
+
+export default {
+  getModel,
 };

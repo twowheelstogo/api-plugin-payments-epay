@@ -1,4 +1,4 @@
-export const getModel = (
+const getModel = (
   shopperIP,
   auditNumber = "",
   email = "",
@@ -43,7 +43,7 @@ const TO_AUTHORIZE = "0200";
 const TO_REFUND = "0202";
 const TO_REVERSE = "0400";
 
-export const modelToXml = (model, action) => {
+const modelToXml = (model, action) => {
   const epayPaymentIP = process.env.EPAY_PAYMENT_IP;
   const epayMerchantIP = process.env.EPAY_MERCHANT_IP;
   const epayMerchantUser = process.env.EPAY_MERCHANT_USER;
@@ -92,7 +92,7 @@ export const modelToXml = (model, action) => {
   return xml;
 };
 
-export const resToJson = async (res) => {
+const resToJson = async (res) => {
   const xml = await res.text();
   let regex = new RegExp("<auditNumber>(.*?)</auditNumber>");
   const auditNumber = await xml.match(regex)[1];
@@ -112,3 +112,9 @@ export const resToJson = async (res) => {
     responseCode,
   };
 };
+
+export default {
+  getModel,
+  modelToXml,
+  resToJson
+}
