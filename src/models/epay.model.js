@@ -8,7 +8,6 @@ const getModel = (
   cvv2 = "",
   cardName = ""
 ) => {
-  console.log("creando modelooop");
   let pan = cardNumber && cardNumber.replace(/ /g, "");
   cardExpiry = cardExpiry.replace(/[^\d]/g, "");
   let expvalues =
@@ -28,7 +27,6 @@ const getModel = (
     auditNumber,
     email,
     cardName,
-    orderIdSequence,
     metadata: {
       pan: metaPan,
       cardName,
@@ -66,7 +64,7 @@ const modelToXml = (model, action) => {
   xml += `<typ:merchantPasswd>${epayMerchantPassword}</typ:merchantPasswd>`;
   xml += `<typ:terminalId>${epayTerminalId}</typ:terminalId>`;
   xml += `<typ:merchant>${epayMerchant}</typ:merchant>`;
-  xml += `<typ:auditNumber>${model.orderIdSequence}</typ:auditNumber>`;
+  xml += `<typ:auditNumber>${model.auditNumber}</typ:auditNumber>`;
   xml += `<typ:track2Data></typ:track2Data>`;
   if (action == 0) {
     xml += `<typ:messageType>${TO_AUTHORIZE}</typ:messageType>`;
