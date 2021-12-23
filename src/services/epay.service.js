@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import { EpayConstant } from "../constants/index.js";
 import { EpayModel } from "../models/index.js";
 
-export const serviceInvoice = async (body, action = 1) => {
+ const serviceInvoice = async (body, action = 1) => {
   const invoiceUrl = process.env.INVOICE_URL;
   const res = await fetch(`${invoiceUrl}/api/epay?action=${action}`, {
     method: "POST",
@@ -22,7 +22,7 @@ export const serviceInvoice = async (body, action = 1) => {
   return data;
 };
 
-export const serviceEpay = async (model, action) => {
+ const serviceEpay = async (model, action) => {
   const epayUrl = process.env.EPAY_URL;
   let xml = EpayModel.modelToXml(model, action);
   const option = {
@@ -47,4 +47,9 @@ export const serviceEpay = async (model, action) => {
     throw new Error("error desconocido en el sistema de cobros");
   }
   return data;
+};
+
+export default {
+  serviceInvoice,
+  serviceEpay
 };
