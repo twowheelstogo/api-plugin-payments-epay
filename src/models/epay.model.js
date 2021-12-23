@@ -8,6 +8,7 @@ const getModel = (
   cvv2 = "",
   cardName = ""
 ) => {
+  console.log("creando modelooop");
   let pan = cardNumber && cardNumber.replace(/ /g, "");
   cardExpiry = cardExpiry.replace(/[^\d]/g, "");
   let expvalues =
