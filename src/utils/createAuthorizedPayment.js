@@ -2,7 +2,7 @@ import Random from "@reactioncommerce/random";
 import { EpayService } from "../services/index.js";
 import { EpayModel, EmailModel } from "../models/index.js";
 import { EPAY_PACKAGE_NAME } from "./constants.js";
-import { sendOrderPaymentEmail } from "../helpers/sendOrderPaymentEmail.js"
+import { sendOrderPaymentEmail } from "../helpers/index.js";
 
 const METHOD = "credit";
 const PAYMENT_METHOD_NAME = "epay_card";
@@ -39,7 +39,7 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
   );
   const res = await EpayService.serviceEpay(model, 0);
   const paymentDataEmail = EmailModel.getModel(model, res, "approved");
-  sendOrderPaymentEmail(context, paymentDataEmail, email, shopId );
+  sendOrderPaymentEmail(context, paymentDataEmail, email, shopId);
   return {
     _id: Random.id(),
     address: billingAddress || null,
