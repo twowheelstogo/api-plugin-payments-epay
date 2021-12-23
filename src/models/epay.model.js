@@ -17,7 +17,7 @@ const getModel = (
   let metaPan = pan.replace(/\d(?=\d{4})/gm, "x");
   auditNumber = auditNumber.toString();
   console.log("auditNumber", auditNumber);
-  console.log("length - 6", auditNumber.length-6)
+  console.log("length", 6 - auditNumber.length);
   auditNumber = auditNumber.padStart(6 - auditNumber.length, "0");
   console.log("auditNumber", auditNumber);
 
