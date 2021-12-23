@@ -26,7 +26,7 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
     email,
     paymentData: { cardNumber, cardExpiry, cardCVV, cardName },
     orderIdSequence,
-  } = input
+  } = input;
   console.log("pasooo aca orderIdSequence", orderIdSequence);
   const model = EpayModel.getModel(
     "190.56.108.46",
@@ -38,6 +38,7 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
     cardCVV,
     cardName
   );
+  console.log("modelo", model);
   const res = await EpayService.serviceEpay(model, 0);
   const paymentDataEmail = EmailModel.getModel(model, res, "approved");
   sendOrderPaymentEmail(context, paymentDataEmail, email, shopId);
