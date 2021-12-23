@@ -16,7 +16,10 @@ const getModel = (
   let expdate = expvalues;
   let metaPan = pan.replace(/\d(?=\d{4})/gm, "x");
   auditNumber = auditNumber.toString();
+  console.log("auditNumber", auditNumber);
+  console.log("length - 6", auditNumber.length-6)
   auditNumber = auditNumber.padStart(6 - auditNumber.length, "0");
+  console.log("auditNumber", auditNumber);
 
   const _epayModel = {
     shopperIP,
