@@ -49,6 +49,7 @@ const modelToXml = (model, action) => {
   const epayMerchantPassword = process.env.EPAY_MERCHANT_PASSWORD;
   const epayTerminalId = process.env.EPAY_TERMINAL_ID;
   const epayMerchant = process.env.EPAY_MERCHANT;
+  const epayShopIP = process.env.EPAY_SHOP_IP;
 
   let xml =
     '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://general_computing.com/paymentgw/types">';
