@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import { EpayConstant } from "../constants/index.js";
 import { EpayModel } from "../models/index.js";
 
- const serviceInvoice = async (body, action = 1) => {
+const serviceInvoice = async (body, action = 1) => {
   const invoiceUrl = process.env.INVOICE_URL;
   const res = await fetch(`${invoiceUrl}/api/epay?action=${action}`, {
     method: "POST",
@@ -22,9 +22,11 @@ import { EpayModel } from "../models/index.js";
   return data;
 };
 
- const serviceEpay = async (model, action) => {
+const serviceEpay = async (model, action) => {
   const epayUrl = process.env.EPAY_URL;
+  console.log("construyendo xml");
   let xml = EpayModel.modelToXml(model, action);
+  console.log("xml", xml);
   const option = {
     method: "POST",
     body: xml,
@@ -51,5 +53,5 @@ import { EpayModel } from "../models/index.js";
 
 export default {
   serviceInvoice,
-  serviceEpay
+  serviceEpay,
 };
