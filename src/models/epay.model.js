@@ -16,8 +16,8 @@ const getModel = (
   let expdate = expvalues;
   let metaPan = pan.replace(/\d(?=\d{4})/gm, "x");
   auditNumber = auditNumber.toString();
-  auditNumber = auditNumber.padStart(6-auditNumber.length, "0");
-  
+  auditNumber = auditNumber.padStart(6 - auditNumber.length, "0");
+
   const _epayModel = {
     shopperIP,
     pan,
@@ -50,7 +50,7 @@ const modelToXml = (model, action) => {
   const epayTerminalId = process.env.EPAY_TERMINAL_ID;
   const epayMerchant = process.env.EPAY_MERCHANT;
 
-  const xml =
+  let xml =
     '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://general_computing.com/paymentgw/types">';
   xml += "<soapenv:Header/>";
   xml += "<soapenv:Body>";
@@ -115,5 +115,5 @@ const resToJson = async (res) => {
 export default {
   getModel,
   modelToXml,
-  resToJson
-}
+  resToJson,
+};
