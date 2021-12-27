@@ -14,7 +14,7 @@ import { EpayModel, EmailModel } from "../models/index.js";
  */
 export default async function createRefund(context, payment, amount, reason) {
   const { currencyCode, transactionId, data } = payment;
-  const model = EpayModel(
+  const model = EpayModel.getModel(
     "190.56.108.46",
     transactionId,
     data.email,

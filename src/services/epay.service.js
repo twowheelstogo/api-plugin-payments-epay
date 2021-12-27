@@ -24,9 +24,7 @@ const serviceInvoice = async (body, action = 1) => {
 
 const serviceEpay = async (model, action) => {
   const epayUrl = process.env.EPAY_URL;
-  console.log("construyendo xml");
   let xml = EpayModel.modelToXml(model, action);
-  console.log("xml", xml);
   const option = {
     method: "POST",
     body: xml,

@@ -12,7 +12,6 @@ export default async function sendOrderPaymentEmail(
   shopId
 ) {
   // anonymous account orders without emails.
-  console.log("helpers sendOrder payment Emaukl");
   const to = email;
   const shop = await context.collections.Shops.findOne({ _id: shopId });
   payment.shop = shop;

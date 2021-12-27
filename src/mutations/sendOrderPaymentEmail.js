@@ -12,14 +12,6 @@ export default async function sendOrderPaymentEmail(context, input) {
 
   // Compile email
   const templateName = "payment";
-  console.log("data email");
-  console.log({
-    data: dataForEmail,
-    fromShop,
-    templateName,
-    language,
-    to,
-  });
   await context.mutations.sendEmail(context, {
     data: dataForEmail,
     fromShop,
