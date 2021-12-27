@@ -25,8 +25,8 @@ export default async function createRefund(context, payment, amount, reason) {
     data.cardName
   );
   //let metadata = await EpayService.serviceInvoice(model, 1);
-  let metadata =  await EpayService.serviceEpay(model, 1);
-  const paymentDataEmail = EmailModel.getModel(model, res, "refunded");
+  let metadata = await EpayService.serviceEpay(model, 1);
+  const paymentDataEmail = EmailModel.getModel(model, metadata, "refunded");
   sendOrderPaymentEmail(context, paymentDataEmail, data.email, shopId);
   await context.collections.EpayPaymentRefunds.insertOne({
     amount,
