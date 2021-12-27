@@ -14,6 +14,7 @@ import { sendOrderPaymentEmail } from "../helpers/index.js";
  * @private
  */
 export default async function createRefund(context, payment, amount, reason) {
+  console.log("payment is ", payment);
   const { currencyCode, transactionId, data } = payment;
   const model = EpayModel.getModel(
     "190.56.108.46",
