@@ -40,6 +40,7 @@ export default async function exampleCreateAuthorizedPayment(context, input) {
   console.log("modelo", model);
   const res = await EpayService.serviceEpay(model, 0);
   const paymentDataEmail = EmailModel.getModel(model, res, "approved");
+  console.log("start email")
   sendOrderPaymentEmail(context, paymentDataEmail, email, shopId);
   return {
     _id: Random.id(),
